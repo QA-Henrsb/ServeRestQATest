@@ -5,7 +5,7 @@ const path = require('path');
 const report = path.resolve(__dirname, '..', 'cypress', 'reports', 'html', 'index.html');
 
 if (!fs.existsSync(report)) {
-  console.error('Relatorio nao encontrado. Rode npm run test:all antes.');
+  console.error('Relatório não encontrado. Rode npm run test:all antes.');
   process.exit(1);
 }
 

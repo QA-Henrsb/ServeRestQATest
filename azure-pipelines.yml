@@ -1,5 +1,5 @@
-# Pipeline de referencia para Azure Pipelines (candidato).
-# Executa a suite localmente tambem com: npm run test:all
+# Pipeline de referência para Azure Pipelines (candidato).
+# Executa a suite localmente também com: npm run test:all
 
 trigger:
   - main

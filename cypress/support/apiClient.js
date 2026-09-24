@@ -1,6 +1,6 @@
 /**
  * Cliente fino sobre cy.request para a API ServeRest.
- * Centraliza URL, headers e helpers de setup (usuario/produto).
+ * Centraliza URL, headers e helpers de setup (usuário/produto).
  */
 const apiUrl = () => Cypress.env('apiUrl');
 

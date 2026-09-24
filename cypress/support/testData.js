@@ -1,6 +1,6 @@
 /**
- * Gera dados unicos por execucao.
- * Ambiente publico compartilhado: nao depender de usuarios fixos.
+ * Gera dados únicos por execução.
+ * Ambiente público compartilhado: não depender de usuários fixos.
  */
 function suffix() {
   return `${Date.now()}_${Cypress._.random(1000, 9999)}`;
@@ -31,7 +31,7 @@ export function buildProduct(overrides = {}) {
   return {
     nome: `Produto QA ${id}`,
     preco: 150,
-    descricao: `Descricao automatizada ${id}`,
+    descricao: `Descrição automatizada ${id}`,
     quantidade: 25,
     ...overrides,
   };
