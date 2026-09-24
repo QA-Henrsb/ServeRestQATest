@@ -7,10 +7,12 @@
     "cy:open": "cypress open",
     "test:e2e": "cypress run --spec 'cypress/e2e/**/*.cy.js'",
     "test:api": "cypress run --spec 'cypress/api/**/*.cy.js'",
-    "test:all": "cypress run --spec 'cypress/api/**/*.cy.js,cypress/e2e/**/*.cy.js'"
+    "test:all": "cypress run --spec 'cypress/api/**/*.cy.js,cypress/e2e/**/*.cy.js'",
+    "report:open": "node scripts/open-report.js"
   },
   "devDependencies": {
-    "cypress": "^13.17.0"
+    "cypress": "^13.17.0",
+    "cypress-mochawesome-reporter": "^3.8.4"
   },
   "engines": {
     "node": ">=18"

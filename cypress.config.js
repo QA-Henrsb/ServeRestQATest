@@ -1,6 +1,15 @@
 const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'ServeRest QA - Cypress',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
+    reportDir: 'cypress/reports/html',
+  },
   e2e: {
     baseUrl: 'https://front.serverest.dev',
     specPattern: ['cypress/api/**/*.cy.js', 'cypress/e2e/**/*.cy.js'],
@@ -16,6 +25,10 @@ module.exports = defineConfig({
     },
     env: {
       apiUrl: 'https://serverest.dev',
+    },
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+      return config;
     },
   },
 });

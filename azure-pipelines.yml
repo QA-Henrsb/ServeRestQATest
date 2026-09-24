@@ -20,6 +20,14 @@ steps:
     displayName: Cypress API + E2E
 
   - task: PublishPipelineArtifact@1
+    condition: always()
+    displayName: HTML report
+    inputs:
+      targetPath: cypress/reports
+      artifact: cypress-html-report
+      publishLocation: pipeline
+
+  - task: PublishPipelineArtifact@1
     condition: failed()
     displayName: Screenshots on failure
     inputs:

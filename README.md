@@ -16,12 +16,23 @@ npm run test:all
 Scripts:
 
 ```bash
-npm run test:api   # so API (cy.request)
-npm run test:e2e   # so UI
-npm run cy:open    # modo interativo
+npm run test:api     # so API (cy.request)
+npm run test:e2e     # so UI
+npm run test:all     # API + E2E (gera o relatorio HTML)
+npm run report:open  # abre o HTML gerado no navegador
+npm run cy:open      # modo interativo
 ```
 
 Requisito: Node 18+.
+
+### Relatorio HTML (mochawesome)
+
+Depois de `npm run test:all`, o `cypress-mochawesome-reporter` gera um HTML unico (assets inline) em:
+
+`cypress/reports/html/index.html`
+
+Para abrir: `npm run report:open`, ou abra o arquivo direto no navegador.  
+A pasta `cypress/reports/` esta no `.gitignore` (nao versionar o HTML gerado).
 
 ## O que foi testado
 
@@ -36,7 +47,7 @@ Priorizei riscos de autenticacao, autorizacao e catalogo admin. Ambiente publico
 | SRV-FE-02 | E2E | Admin cria e lista produto | Gestao admin no front |
 | SRV-FE-03 | E2E | Login invalido na UI | Caminho negativo |
 
-Passo a passo + Gherkin (EN): [docs/test-cases.md](docs/test-cases.md).
+Casos em [docs/test-cases.md](docs/test-cases.md) (Gherkin / passos estilo Azure Test Plans) em ingles, alinhado ao padrao comum em pipelines e documentacao de teste em times internacionais.
 
 ## Organizacao
 
@@ -66,7 +77,7 @@ So em **SRV-FE-02**: o admin e criado pela API para isolar a UI no fluxo de prod
 
 ## CI
 
-`azure-pipelines.yml` roda Node 20, `npm ci`, `npm run test:all` e publica screenshots se falhar. Localmente o equivalente e `npm run test:all`.
+`azure-pipelines.yml` roda Node 20, `npm ci`, `npm run test:all`, publica o relatorio HTML e screenshots se falhar. Localmente o equivalente e `npm run test:all`.
 
 ## Ambiente publico / flaky
 
