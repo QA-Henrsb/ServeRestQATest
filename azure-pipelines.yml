@@ -1,0 +1,28 @@
+# Pipeline de referencia para Azure Pipelines (candidato).
+# Executa a suite localmente tambem com: npm run test:all
+
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '20.x'
+    displayName: Node 20
+
+  - script: npm ci
+    displayName: Install
+
+  - script: npm run test:all
+    displayName: Cypress API + E2E
+
+  - task: PublishPipelineArtifact@1
+    condition: failed()
+    displayName: Screenshots on failure
+    inputs:
+      targetPath: cypress/screenshots
+      artifact: cypress-screenshots
+      publishLocation: pipeline
