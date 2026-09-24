@@ -1,0 +1,18 @@
+{
+  "name": "serverest-qa-cypress",
+  "version": "1.0.0",
+  "description": "Suite Cypress (E2E + API) para o desafio ServeRest",
+  "private": true,
+  "scripts": {
+    "cy:open": "cypress open",
+    "test:e2e": "cypress run --spec 'cypress/e2e/**/*.cy.js'",
+    "test:api": "cypress run --spec 'cypress/api/**/*.cy.js'",
+    "test:all": "cypress run --spec 'cypress/api/**/*.cy.js,cypress/e2e/**/*.cy.js'"
+  },
+  "devDependencies": {
+    "cypress": "^13.17.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
