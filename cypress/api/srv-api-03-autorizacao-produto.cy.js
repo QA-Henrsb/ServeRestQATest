@@ -1,8 +1,8 @@
 import { api } from '../support/apiClient';
 import { buildUser, buildProduct } from '../support/testData';
 
-describe('SRV-API-03 - Usuario comum nao cria produto', () => {
-  it('retorna 403 ao tentar POST /produtos sem perfil admin', () => {
+describe('SRV-API-03 - Usuario comum nao cria produto @smoke', () => {
+  it('retorna 403 ao tentar POST /produtos sem perfil admin @smoke', () => {
     const user = buildUser();
     const product = buildProduct();
 

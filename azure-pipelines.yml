@@ -1,5 +1,6 @@
 # Pipeline de referência para Azure Pipelines (candidato).
-# Executa a suite localmente também com: npm run test:all
+# Suite completa (primária): npm run test:all
+# Smoke opcional (PR / check rápido): npm run test:smoke
 
 trigger:
   - main
@@ -16,6 +17,7 @@ steps:
   - script: npm ci
     displayName: Install
 
+  # Gate principal: suite completa. Para smoke separado, adicionar job com npm run test:smoke.
   - script: npm run test:all
     displayName: Cypress API + E2E
 

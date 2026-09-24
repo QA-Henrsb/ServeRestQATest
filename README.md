@@ -18,10 +18,21 @@ Scripts:
 ```bash
 npm run test:api     # só API (cy.request)
 npm run test:e2e     # só UI
+npm run test:smoke   # subset rápido: API-01, API-03 e FE-03
 npm run test:all     # API + E2E (gera o relatório HTML)
 npm run report:open  # abre o HTML gerado no navegador
 npm run cy:open      # modo interativo
 ```
+
+### Smoke
+
+`npm run test:smoke` executa três specs estáveis e rápidos (sem plugin extra):
+
+- `SRV-API-01` login inválido (401)
+- `SRV-API-03` autorização de produto (403)
+- `SRV-FE-03` login inválido na UI
+
+Os títulos `describe`/`it` incluem `@smoke` só para leitura; o filtro real é a lista `--spec` no script npm.
 
 Requisito: Node 18+.
 
@@ -73,11 +84,13 @@ Só em **SRV-FE-02**: o admin é criado pela API para isolar a UI no fluxo de pr
 1. Auth e autorização primeiro (401/403 e login na UI).
 2. CRUD admin de produto cobre o write path crítico do catálogo.
 3. Cadastro/login cobre o funil básico do usuário.
-4. Fora de escopo: carrinho completo, performance, mobile.
+4. Fora de escopo nesta entrega: carrinho completo, performance, mobile.
+
+O desafio pede 3 E2E + 3 API; foquei profundidade e risco nesses seis. Se houvesse continuidade, próximos seriam carrinho completo e cobertura de listagem/pesquisa no catálogo.
 
 ## CI
 
-`azure-pipelines.yml` roda Node 20, `npm ci`, `npm run test:all`, publica o relatório HTML e screenshots se falhar. Localmente o equivalente é `npm run test:all`.
+`azure-pipelines.yml` roda Node 20, `npm ci`, `npm run test:all` (suite completa como gate principal), publica o relatório HTML e screenshots se falhar. Localmente o equivalente é `npm run test:all`. Para um check mais curto em PR, use `npm run test:smoke`.
 
 ## Ambiente público / flaky
 

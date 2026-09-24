@@ -1,7 +1,7 @@
 import LoginPage from '../pages/LoginPage';
 
-describe('SRV-FE-03 - Login invalido na UI', () => {
-  it('mantem o usuario na tela de login e exibe erro', () => {
+describe('SRV-FE-03 - Login invalido na UI @smoke', () => {
+  it('mantem o usuario na tela de login e exibe erro @smoke', () => {
     LoginPage.visit();
     LoginPage.loginAs('nao.existe@example.com', 'senha-errada');
 

@@ -11,6 +11,7 @@ Data rule: each run creates unique users/products (no fixed shared accounts).
 
 **Type:** API  
 **Risk:** Authentication failure handling  
+**Smoke:** yes  
 **Spec:** `cypress/api/srv-api-01-login-invalido.cy.js`
 
 ### Azure-style steps
@@ -68,6 +69,7 @@ Feature: Admin product lifecycle
 
 **Type:** API  
 **Risk:** Authorization / privilege escalation  
+**Smoke:** yes  
 **Spec:** `cypress/api/srv-api-03-autorizacao-produto.cy.js`
 
 ### Azure-style steps
@@ -151,6 +153,7 @@ Feature: Admin product UI
 
 **Type:** E2E (UI)  
 **Risk:** Visible negative auth path  
+**Smoke:** yes  
 **Spec:** `cypress/e2e/srv-fe-03-login-invalido.cy.js`
 
 ### Azure-style steps

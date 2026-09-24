@@ -7,6 +7,7 @@
     "cy:open": "cypress open",
     "test:e2e": "cypress run --spec 'cypress/e2e/**/*.cy.js'",
     "test:api": "cypress run --spec 'cypress/api/**/*.cy.js'",
+    "test:smoke": "cypress run --spec 'cypress/api/srv-api-01-login-invalido.cy.js,cypress/api/srv-api-03-autorizacao-produto.cy.js,cypress/e2e/srv-fe-03-login-invalido.cy.js'",
     "test:all": "cypress run --spec 'cypress/api/**/*.cy.js,cypress/e2e/**/*.cy.js'",
     "report:open": "node scripts/open-report.js"
   },
